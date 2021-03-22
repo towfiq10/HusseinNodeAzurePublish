@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Library App</title>
+  <!-- <documentation at http://demos.jquerymobile.com/1.4.1/ > -->
+
+  <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
+
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <link rel="stylesheet" href="theme/my-theme.css" />
+
+  
+ <script src="javascripts/index.js"></script>  
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+  <script src="https://kit.fontawesome.com/8a6a297714.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- Start of  page ------------------------------------------------------------------>
+  <div data-role="page" id="home">
+
+    <!--   page header -->
+    <div data-role="header" data-theme='b'>
+    
+      <h1><img src="images/logo.png" id="logo" alt=""><br/>J&H Library </h1>
+      <div data-role="navbar" data-theme='a'>
+        <ul>
+          <li><a href="#home"> Home <i class="fas fa-home" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#Load"> Add <i class="fas fa-book-medical" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#ListAll">Books <i class="fas fa-search"  style="font-size: 20px;"></i></a></li>
+          <li><a href="#MyList">saved <i class="fab fa-gratipay" style="font-size: 20px;"></i></a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+
+    <!--   page content -->
+    <div data-role="content" data-theme='a' id="homeDiv">
+        <div class="newFont">
+          Welcome to J & H Library 
+       </div>
+      <div id="info">
+        <img src="images/online-library.jpg"style="width: 500px; height: 300px;" alt="">
+        <br/>
+        <img src="images/mylibrary.png" style="width: 300px; " alt="">
+        <br/>
+        <br/>
+        <br>      
+        <p style="font-size: 20px; list-style: none;"> 
+             
+          Book information : <a href="#ListAll">book <i class="fas fa-search"  style="font-size: 20px;"></i></a></li> menu  <br/>
+          -- You can see all the book information and can search by category <br/>
+          <br/>
+          Save book on your list :  click save<i class='fas fa-heart' id='saveIcon' ></i> on detail page<br/>
+           -- you can see the saved book on <a href="#MyList">saved <i class="fab fa-gratipay" style="font-size: 20px;"></i></a>menu<br/>
+          <span style="color: orange;">** only Employee can add and delete book (id,pw required)</span> </br>
+
+        </p> 
+        <p> Location: </br>               
+          Library Media Center</br>   
+          3000 Landerholm Cir SE</br>
+          Bellevue, WA 98007</br>
+        </p>
+        <p> Hours:</br>                    
+          Monday-Friday, 9 am to 5 pm
+        </p>
+      </div>
+    </div>
+
+    <!--  page footer -->
+    <div data-role="footer" data-position="fixed"
+    data-theme='a'>
+      <h1>Copyrigtht 2021 by Jiwon Oh & Hussein Mohamud</h1>
+    </div>
+  </div>
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+
+
+
+  <div data-role="page" id="Load">
+    <!--  page header -->
+    <div data-role="header" data-theme='b'>
+      <h1><img src="images/logo.png" id="logo" alt=""><br/>J&H Library </h1>
+      <div data-role="navbar" data-theme='b'>
+        <ul>
+          <li><a href="#home"> Home <i class="fas fa-home" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#Load"> Add <i class="fas fa-book-medical" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#ListAll">Books <i class="fas fa-search"  style="font-size: 20px;"></i></a></li>
+          <li><a href="#MyList">saved <i class="fab fa-gratipay" style="font-size: 20px;"></i></a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+
+
+    <!-- page content -->
+    
+
+    <div data-role="content" data-theme='b'>
+      <h3>Book Information Form</h3>
+      Subject<br />
+      <input type="text"  id="Subject"  placeholder="a-zA-Z" onkeypress="filterKey('[a-zA-Z]')"  />
+      Publisher <br />
+      <input type="text" value="" id="Publisher"  placeholder="a-zA-Z" onkeypress="filterKey('[a-zA-Z]')" />
+      Author <br />
+      <input type="text" value="" id="Author"    placeholder="a-zA-Z" onkeypress="filterKey('[a-zA-Z]')" />
+      Rating <br />
+     <input type="number" value="" id="Rating" placeholder="Enter out of 1-5"/>
+      ISBN# <br />
+      <input type="number" value="" id="ISBN"   minlength="8" maxlength="13"  placeholder="8~13 digit number"/>
+      Stock Count <br />
+      <input type="number" value="" id="StockNum" />
+        <div class="ui-field-contain">
+          <label for="select-genre">Select a Classification</label>
+          <select name="select-genre" id="select-genre">
+            <option value="none" disabled>select classification</option>
+            <option value="History">History</option>
+            <option value="Religion">Religion</option>
+            <option value="SocialScience">SocialScience</option>
+            <option value="Language">Language</option>
+            <option value="ScienceAndMath">Science&Math</option>
+            <option value="Geography">Geography</option>
+            <option value="Technology">Technology</option>
+            
+          </select>
+        </div>
+    <br/>
+    <br/>
+    <br/>
+ 
+      <input type="button" value="Click To Add Book" id="buttonAdd" width="100px"/>
+      <input type="button" value="Clear Data" id="buttonClear"  />
+    </div>
+
+       
+    
+    <!--   page footer -->
+      <div data-role="footer" data-position="fixed"data-theme='b'>
+      <h1>Copyrigtht 2021 by Jiwon Oh & Hussein Mohamud</h1>
+    </div>
+  </div>
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+
+  <div data-role="page" id="ListAll">
+    <!--   page header -->
+    <div data-role="header" data-theme='b'>
+      <h1><img src="images/logo.png" id="logo" alt=""><br/>J&H Library </h1>
+      <div data-role="navbar" data-theme='b'>
+        <ul>
+          <li><a href="#home"> Home <i class="fas fa-home" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#Load"> Add <i class="fas fa-book-medical" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#ListAll">Books <i class="fas fa-search"  style="font-size: 20px;"></i></a></li>
+          <li><a href="#MyList">saved <i class="fab fa-gratipay" style="font-size: 20px;"></i></a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+    <!--   page content -->
+    <div data-role="content" id="searchDiv" data-theme='b'>
+		
+      <div id="search_div">
+        <select name="select-category" id="select-category">
+          <option value="none" disabled >Select Category</option>
+          <option value="Subject">Subject</option>
+          <option value="Rating">Rating</option>
+          <option value="Author">Author</option>
+          <option value="Classification">Classification</option>
+        </select>
+        <input type="text"  name="" id="searchTxt" placeholder="enter keyword">
+        <input type="button" value="find" id="searchBtn">
+      </div>
+      <!-- <input type="button" value="Sort By Rating" id="buttonSortRating" data-inline="true" />
+      <input type="button" value="Sort By Subject" id="buttonSortTitle" data-inline="true" /> -->
+     
+        <div id="divBookList">
+          
+       </div>
+      
+    </div>
+
+
+    <!--   page footer -->
+    <div data-role="footer" data-position="fixed"
+    data-theme='b'>
+      <h1>Copyrigtht 2021 by Jiwon Oh & Hussein Mohamud</h1>
+    </div>
+  </div>
+  </div>
+
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+
+  <div data-role="page" id="MyList">
+    <!--   page header -->
+    <div data-role="header" data-theme='b'>
+      <h1><img src="images/logo.png" id="logo" alt=""><br/>J&H Library </h1>
+      <div data-role="navbar" data-theme='b'>
+        <ul>
+          <li><a href="#home"> Home <i class="fas fa-home" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#Load"> Add <i class="fas fa-book-medical" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#ListAll">Books <i class="fas fa-search"  style="font-size: 20px;"></i></a></li>
+          <li><a href="#MyList">saved <i class="fab fa-gratipay" style="font-size: 20px;"></i></a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+    <!--   page content -->
+    <div data-role="content" data-theme='b'>
+      <h3>Saved Book List</h3>
+	  
+	    
+	  <!-- This div displays the booklist -->
+      <div id="divMyBookList">
+        <i class="fas fa-quote-right" style="font-size: 80px;"></i>
+     
+      </div>
+    
+    </div>
+
+
+    <!--   page footer -->
+    <div data-role="footer" data-position="fixed"
+    data-theme='b'>
+      <h1>Copyrigtht 2021 by Jiwon Oh & Hussein Mohamud</h1>
+    </div>
+  </div>
+  </div>
+  <!-- End of  page ------------------------------------------------------------------>
+
+
+  <!-- Start of  page -->
+  <div data-role="page" id="details">
+  
+    <!--   page header -->
+    <div data-role="header" data-theme='b'>
+      <h1><img src="images/logo.png" id="logo" alt=""><br/>J&H Library </h1>
+      <div data-role="navbar" data-theme='b'>
+        <ul>
+          <li><a href="#home"> Home <i class="fas fa-home" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#Load"> Add <i class="fas fa-book-medical" style="font-size: 20px;"></i> </a></li>
+          <li><a href="#ListAll">Books <i class="fas fa-search"  style="font-size: 20px;"></i></a></li>
+          <li><a href="#MyList">saved <i class="fab fa-gratipay" style="font-size: 20px;"></i></a></li>
+        </ul>
+      </div><!-- /navbar -->
+    </div>
+    <!--  content -->
+	
+    <div data-role="content" data-theme='b'>
+      <h3> Book details</h3>
+	 
+      <img src="images/book.png" alt="" style="width: 100px;height: 100px;">
+      <p id="oneTitle"></p>
+      <p id="oneClassify"></p>
+      <p id="onePublisher"></p>
+      <p id="oneAuthor"></p>
+      <p id="oneInstock"></p>
+      <p id="oneISBN"></p>
+	    <p id="oneRating"></p>
+       <button  id="saveOrRemoveBtn"  style="border: none;"></button >
+        <button  id="deleteBook"  style="border: none;color: grey;">Delete Book<br/><i class="far fa-trash-alt"></i></button >
+     
+      
+      
+    </div>
+  
+    <!--    footer -->
+    <div data-role="footer" data-position="fixed"
+    data-theme='b'>
+      <h1>Copyrigtht 2021 by Jiwon Oh & Hussein Mohamud</h1>
+    </div>
+  
+  </div>
+
+
+
+  <p id="IDparmHere" hidden>change1</p>  <!--hidden, a place to stash the user ID -->
+</body>
+
+</html>
+
+<!-- https://hianna.tistory.com/403 -->

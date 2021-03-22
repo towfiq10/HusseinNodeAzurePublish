@@ -1,0 +1,91 @@
+h1 {
+
+
+
+  font-weight: bold;
+  font-size: 40px;
+
+  font-family: 'Nova Flat';
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-family: 'Nova Flat';
+}
+
+.newFont {
+
+  font-family: 'Nova Flat';
+  font-size: 22px;
+  font-size: 40px;
+  font-weight: bold;
+  /* color: rgb(26, 61, 105); */
+
+  margin: 30px;
+}
+
+
+#search_div {
+
+  display: flex;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  left: 40%;
+  /* margin: 20px ; */
+
+}
+
+li {
+  list-style: none;
+}
+
+#logo {
+
+  width: 50px;
+  height: 50px;
+  /* margin-left: 47%; */
+
+}
+
+div[data-role="content"] {
+
+  text-align: center;
+  /* height: 500px; */
+}
+
+
+
+#select-category {
+  font-size: 15px;
+
+}
+
+
+
+#divBookList,
+#divMyBookList {
+
+  height: 500px;
+  width: 50%;
+  position: relative;
+  margin: 20px auto;
+  /* border: 1px solid lightgray; */
+  text-align: left;
+  overflow-y: auto;
+
+}
+
+#buttonSortRating,
+#buttonSortTitle {
+  color: red;
+}
+
+.fa-quote-right {
+
+  color: grey;
+  margin: 25% 40%;
+}
